@@ -1,3 +1,5 @@
+'use strict'
+
 const HelloIntent = function() {
   this.response.speak('Hello! Good day.');
   this.response.listen('Hello! Good day.');

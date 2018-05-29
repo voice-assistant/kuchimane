@@ -1,3 +1,5 @@
+'use strict'
+
 import assert  from 'power-assert';
 import Kuchimane from '../../src/index';
 import { LaunchRequest, HelloIntent, ByeIntent } from '../../sample/greeting_bot/handlers'
