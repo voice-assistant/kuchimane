@@ -55,9 +55,15 @@ export default class Kuchimane {
       }
     }
 
-    return this.handlers[[satoriResult.match, this.alexa.handler.state].join('')].call(this.alexa).then(() => {
-      return this.alexa.response.message;
-    }).catch((e) => { console.log(e) })
+    const result = this.handlers[[satoriResult.match, this.alexa.handler.state].join('')].call(this.alexa);
+
+    if (result instanceof Promise) {
+      return result.then(() => {
+          return this.alexa.response.message;
+        }).catch((e) => { console.log(e) });
+    } else {
+      return Promise.resolve(this.alexa.response.message);
+    }
   }
 
   talkCheck(inputMessage, assertion) { return () => this.listen(inputMessage).then(assertion) }
@@ -79,6 +85,7 @@ export default class Kuchimane {
   static satoriConfig(testConfig, baseDir) {
     const intents = [];
     const slots = [];
+
     if (testConfig['LaunchRequest'] && testConfig['LaunchRequest']['match']) {
       intents.push({ name: 'LaunchRequest', match: testConfig['LaunchRequest']['match'] });
     }
@@ -120,9 +127,11 @@ export default class Kuchimane {
       }
       intents.push(obj);
 
-      modelData.interactionModel.languageModel.types.forEach((t) => {
-        slots[t.name] = t.values.map((v) => v.name.value);
-      });
+      if (modelData.interactionModel.languageModel.types) {
+        modelData.interactionModel.languageModel.types.forEach((t) => {
+          slots[t.name] = t.values.map((v) => v.name.value);
+        });
+      }
     });
   }
 }
