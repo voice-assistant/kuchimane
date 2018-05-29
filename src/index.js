@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { IntentDetector } from 'satori-flow';
+import { IntentDetector, Configuration } from 'satori-flow';
 
 const DefaultRequestMock = {
   "session": {
@@ -70,7 +70,7 @@ export default class Kuchimane {
       requestMock = JSON.parse(fs.readFileSync(path.join(baseDir, testConfig.requestMocksDirPath, requestMockName + '.json')));
     }
     return new Kuchimane(
-      new IntentDetector(new satori.Configuration(this.satoriConfig(testConfig, baseDir))),
+      new IntentDetector(new Configuration(this.satoriConfig(testConfig, baseDir))),
       handlers,
       requestMock
     );
