@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import satori from 'satori-flow';
-const IntentDetector = satori.IntentDetector;
-
+import { IntentDetector } from 'satori-flow';
 
 const DefaultRequestMock = {
   "session": {
