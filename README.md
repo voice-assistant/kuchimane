@@ -1,6 +1,6 @@
 # Kuchimane
 
-A runner of feature tests for VUI.
+A runner of feature tests for Alexa with Node.js.
 
 ## Overview
 Kuchimane helps you to test a dialog (include several conversions) in local.
