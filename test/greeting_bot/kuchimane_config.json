@@ -1,0 +1,9 @@
+{
+  "modelPath": "../../sample/greeting_bot/models/en-US.json",
+  "LaunchRequest": {
+    "match": {
+      "patterns": ["Open GreetingBot", "Open Geeging"],
+      "type": "verbatim"
+    }
+  }
+}
