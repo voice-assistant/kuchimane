@@ -1,0 +1,33 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "GreetingBot",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloIntent",
+          "samples": [
+            "Hello"
+          ]
+        },
+        {
+          "name": "ByeIntent",
+          "samples": [
+            "Bye"
+          ]
+        }
+      ]
+    }
+  }
+}
