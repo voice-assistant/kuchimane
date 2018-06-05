@@ -1,6 +1,7 @@
 # Kuchimane
 
 A runner of feature tests for Alexa with Node.js.
+(We do not yet catch up the ASK SDK v2. :-( )
 
 ## Overview
 Kuchimane helps you to test a dialog (include several conversions) in local.
