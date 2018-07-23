@@ -32,6 +32,7 @@ class AlexaMock {
   constructor() {
     this.response = new AlexaResponseMock();
     this.event = {};
+    this.attributes = {};
     this.handler = {
       state: null
     }
