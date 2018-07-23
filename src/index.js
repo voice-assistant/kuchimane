@@ -46,6 +46,7 @@ export default class Kuchimane {
     this.handlers = handlers;
     this.alexa = new AlexaMock();
     this.alexa.event = requestMock;
+    this.alexa.attributes = requestMock.session ? requestMock.session.attributes : {};
   }
 
   listen(text) {
