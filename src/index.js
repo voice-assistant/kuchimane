@@ -29,12 +29,12 @@ class AlexaResponseMock {
   linkAccountCard(l) { this.linkAccountCard = l; }
 }
 class AlexaMock {
-  constructor() {
+  constructor(state = null) {
     this.response = new AlexaResponseMock();
     this.event = {};
     this.attributes = {};
     this.handler = {
-      state: null
+      state
     }
   }
   emit() {}
@@ -44,7 +44,7 @@ export default class Kuchimane {
   constructor(satori, handlers, requestMock) {
     this.satori = satori;
     this.handlers = handlers;
-    this.alexa = new AlexaMock();
+    this.alexa = new AlexaMock(requestMock.session.attributes["STATE"]);
     this.alexa.event = requestMock;
     this.alexa.attributes = requestMock.session ? requestMock.session.attributes : {};
   }
